@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TastyBites Restaurant</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      scroll-behavior: smooth;
+    }
+    /* Navbar */
+    .navbar-dark .navbar-brand {
+      font-weight: bold;
+      color: #ffc107;
+    }
+    .navbar-dark .nav-link {
+      color: white;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .navbar-dark .nav-link:hover {
+      color: #ffc107;
+    }
+    .account-icon img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    /* Hero */
+    .hero {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+    }
+    /* Menu Cards */
+    .card {
+      overflow: hidden;
+      border: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card img { transition: transform 0.4s ease; }
+    .card:hover { transform: translateY(-10px); box-shadow: 0px 15px 30px rgba(0,0,0,0.2); }
+    .card:hover img { transform: scale(1.1); }
+    section h2 { color: #ffc107; font-weight: bold; }
+    footer { background: #212529; color: white; }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+  <div class="container">
+    <a class="navbar-brand" href="#home">TastyBites</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="#order">Order</a></li>
+        <li class="nav-item"><a class="nav-link" href="#payment">Payment</a></li>
+        <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
+        <!-- Account Icon -->
+        <li class="nav-item account-icon ms-3">
+          <a href="account.html" class="nav-link">
+            <i class="fa fa-user fa-lg text-white" id="userIcon"></i>
+            <img src="karan profile.png" id="profilePhoto" style="display:none;">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero d-flex align-items-center justify-content-center text-center" id="home">
+  <div class="hero-content" data-aos="fade-up">
+    <h1 class="display-3 fw-bold">Welcome to <span class="text-warning">TastyBites</span></h1>
+    <p class="lead">Delicious meals at your fingertips</p>
+    <a href="#menu" class="btn btn-warning btn-lg mt-3 me-2">View Menu</a>
+    <a href="#order" class="btn btn-outline-light btn-lg mt-3">Order Now</a>
+  </div>
+</section>
+
+<!-- Menu Section -->
+<section class="py-5 bg-light" id="menu">
+  <div class="container">
+    <h2 class="text-center mb-4" data-aos="fade-up">Our Menu</h2>
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="zoom-in">
+        <div class="card h-100">
+          <img src="Cheese Burger.png" class="card-img-top" alt="Burger">
+          <div class="card-body text-center">
+            <h5 class="card-title">Cheese Burger</h5>
+            <h5 class="card-text text-muted">₹150</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="card h-100">
+          <img src="Veg Pizza.avif" class="card-img-top" alt="Pizza" width="500px" height="415px">
+          <div class="card-body text-center">
+            <h5 class="card-title">Veg Pizza</h5>
+            <h5 class="card-text text-muted">₹250</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="card h-100">
+          <img src="Creamy Pasta.jpg" class="card-img-top" alt="Pasta" width="500px" height="415px">
+          <div class="card-body text-center">
+            <h5 class="card-title">Creamy Pasta</h5>
+            <p class="card-text text-muted">₹200</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Order Section with Dish Dropdown -->
+<section class="py-5" id="order">
+  <div class="container">
+    <h2 class="text-center mb-4" data-aos="fade-up">Place Your Order</h2>
+    <form class="row g-3" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-md-6">
+        <input type="text" class="form-control" placeholder="Your Name" required>
+      </div>
+      <div class="col-md-6">
+        <input type="email" class="form-control" placeholder="Email" required>
+      </div>
+      
+      <!-- Dish Name Dropdown -->
+      <div class="col-md-6">
+        <select class="form-select" required>
+          <option value="" disabled selected>Select Dish</option>
+          <option>Cheese Burger - ₹150</option>
+          <option>Veg Pizza - ₹250</option>
+          <option>Creamy Pasta - ₹200</option>
+          <option>French Fries - ₹100</option>
+          <option>Cold Coffee - ₹80</option>
+        </select>
+      </div>
+      
+      <div class="col-md-6">
+        <input type="number" class="form-control" placeholder="Quantity" required>
+      </div>
+      <div class="col-12">
+        <textarea class="form-control" rows="3" placeholder="Address" required></textarea>
+      </div>
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-warning btn-lg">Submit Order</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- Payment Section -->
+<section class="py-5 bg-light" id="payment">
+  <div class="container text-center">
+    <h2 class="mb-4" data-aos="fade-up">Payment</h2>
+    <p class="lead mb-3" data-aos="fade-up" data-aos-delay="100">Choose a payment method (demo only)</p>
+    <button class="btn btn-outline-dark me-2" data-aos="zoom-in">Credit Card</button>
+    <button class="btn btn-outline-dark me-2" data-aos="zoom-in" data-aos-delay="100">UPI</button>
+    <button class="btn btn-outline-dark" data-aos="zoom-in" data-aos-delay="200">Cash on Delivery</button>
+  </div>
+</section>
+
+<!-- Reviews Section -->
+<section class="py-5" id="reviews">
+  <div class="container">
+    <h2 class="text-center mb-4" data-aos="fade-up">Customer Reviews</h2>
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="flip-left">
+        <div class="card p-3 shadow h-100">
+          <p>"Amazing food and super fast delivery!"</p>
+          <h6 class="fw-bold">- Rahul</h6>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="flip-left" data-aos-delay="100">
+        <div class="card p-3 shadow h-100">
+          <p>"The best pizza I’ve ever had!"</p>
+          <h6 class="fw-bold">- Sneha</h6>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="flip-left" data-aos-delay="200">
+        <div class="card p-3 shadow h-100">
+          <p>"Delicious meals and easy online ordering."</p>
+          <h6 class="fw-bold">- Arjun</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-3 text-center">
+  <p class="mb-0">&copy; 2025 TastyBites. All Rights Reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+
+  // Simulate login demo: show profile photo after 3s
+  setTimeout(()=>{
+    document.getElementById('userIcon').style.display = 'none';
+    document.getElementById('profilePhoto').style.display = 'inline';
+  }, 3000);
+</script>
+</body>
+</html>
